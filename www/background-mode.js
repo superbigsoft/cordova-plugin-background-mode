@@ -475,16 +475,16 @@ exports._setActive = function(value)
  */
 exports._pluginInitialize = function()
 {
-    this._isAndroid = device.platform.match(/^android|amazon/i) !== null;
+    this._isAndroid = cordova.device.platform.match(/^android|amazon/i) !== null;
     this.setDefaults({});
 
-    if (device.platform == 'browser')
+    if (cordova.device.platform == 'browser')
     {
         this.enable();
         this._isEnabled = true;
     }
 
-    this._isActive  = this._isActive || device.platform == 'browser';
+    this._isActive = this._isActive || cordova.device.platform == 'browser';
 };
 
 // Called before 'deviceready' listener will be called
